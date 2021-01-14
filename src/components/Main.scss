@@ -1,0 +1,17 @@
+.content_main {
+  background-color: #CEABB1;
+  margin: 0 1rem 1rem 1rem;
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+
+  .content_search {
+    margin: 1rem;
+  }
+
+  .content_nominations {
+    background-color: #D9BDC5;
+    margin: 1rem;
+  }
+
+}
