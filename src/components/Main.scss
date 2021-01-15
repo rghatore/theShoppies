@@ -12,6 +12,17 @@
   .content_nominations {
     background-color: #D9BDC5;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    .text_nominations {
+      margin: 1rem;
+      color: #fff;
+      text-shadow: 0 0 5px black;
+    }
+
   }
 
 }
