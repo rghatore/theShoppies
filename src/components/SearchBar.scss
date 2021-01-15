@@ -1,0 +1,15 @@
+.search_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+
+  #movie_search {
+    margin-left: 1em;
+    padding-left: 0.5em;
+    font-size: 16px;
+    height: 2em;
+    flex-grow: 2;
+  }
+}

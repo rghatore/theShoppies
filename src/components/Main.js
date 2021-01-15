@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import './Main.scss';
 import NominationList from './NominationList';
-import Search from './SearchBar.js'
+import SearchBar from './SearchBar.js'
+import SearchResults from './SearchResults';
 
 function Main() {
 
   const [nominations, setNominations] = useState(["", "", "", "", ""])
+  const [results, setResults] = useState(["Superman", "Superman 2", "Superman 3"]);
 
   return (
     <main className="content_main">
       <section className="content_search">
-        <p>Search bar and results go here</p>
-        <Search />
+        <SearchBar />
+        <p>Select your favourite movies to nominate for the Shoppies:</p>
+        <SearchResults results={results}/>
       </section>
       <aside className="content_nominations">
         <h2 className="text_nominations">Nominations</h2>
