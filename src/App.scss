@@ -4,32 +4,57 @@
   flex-direction: column;
   justify-content: stretch;
   height: 100vh;
+
+  header {
+    background-color: #4E5166;
+    color: #fff;
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  
+    #logo {
+      padding: 0 1rem;
+    }
+  }
+
+  .content_main {
+    background-color: #CEABB1;
+    margin: 0 1rem 1rem 1rem;
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+  
+    .content_search {
+      margin: 1rem;
+      flex-grow: 2;
+    }
+  
+    .content_nominations {
+      background-color: #D9BDC5;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+  
+      .text_nominations {
+        margin: 1rem;
+        color: #fff;
+        text-shadow: 0 0 5px black;
+      }
+  
+    }
+  
+  }
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
+/* The following code might help with loading status
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #e5e5e5;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -40,3 +65,4 @@
     transform: rotate(360deg);
   }
 }
+*/
