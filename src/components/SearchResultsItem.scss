@@ -3,11 +3,22 @@
   flex: 0 48%;
   height: 5em;
   margin-bottom: 1rem;
+  border-radius: 0 5px 0 0;
   display: flex;
 
   .poster {
     height: 5em;
     width: 3.75em;
+  }
+
+  .fa-plus-square {
+    line-height: 29px;
+    color: green;
+  }
+
+  .fa-check-square {
+    line-height: 29px;
+    color: grey;
   }
 
   .results_title_year {
@@ -22,6 +33,8 @@
       margin-block-end: 0;
       padding-top: 0.5em;
     }
+
+  
 
   }
 }

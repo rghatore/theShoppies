@@ -10,13 +10,17 @@ function SearchResults(props) {
 
   return (
     <ul className="search_results">
-      {props.results.map(
+      {
+        props.results.map(
         movie => <SearchResultsItem 
           key={movie.imdbID} 
           item={movie}
           onClick={() => props.nominate(movie)}
+          // onClick={() => nominate(movie)}
+          nominations={props.nominations}
           />
-        )}
+        )
+      }
     </ul>
   )
 };

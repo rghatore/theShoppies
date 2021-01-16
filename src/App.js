@@ -36,7 +36,7 @@ function App() {
     console.log(`removing movie ${movie.Title}`)
     const nominations = [...state.nominations];
     // find movie index and remove
-    const movieSpot = nominations.findIndex(item => item.Title === movie.Title);
+    const movieSpot = nominations.findIndex(item => item.imdbID === movie.imdbID);
     nominations[movieSpot] = "";
     setState(prev => ({ ...prev, nominations }));
   }
@@ -53,11 +53,18 @@ function App() {
             {/* <SearchBar onSearch={term => setTerm(term)}/> */}
             <SearchBar onSearch={term => setState({...state, term})}/>
             <p>Select your favourite movies to nominate for the Shoppies:</p>
-            <SearchResults results={state.results} nominate={nominate}/>
+            <SearchResults
+              results={state.results}
+              nominate={nominate}
+              nominations={state.nominations}
+            />
           </section>
           <aside className="content_nominations">
             <h2 className="text_nominations">Nominations</h2>
-            <NominationList nominations={state.nominations} remove={remove}/>
+            <NominationList
+              nominations={state.nominations}
+              remove={remove}
+            />
           </aside>
         </main>
       </>
