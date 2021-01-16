@@ -7,17 +7,39 @@ import SearchResults from './components/SearchResults';
 
 function App() {
 
-  const [term, setTerm] = useState("");
-  const [results, setResults] = useState([]);
-  const [nominations, setNominations] = useState(["", "", "", "", ""])
+  const [state, setState] = useState({
+    term: "",
+    results: [],
+    nominations: ["", "", "", "", ""]
+  })
 
   useEffect(() => {
-    axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${term}&type=movie`)
+    axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${state.term}&type=movie`)
     .then(({ data }) => {
       console.log(data); // upto ten results
-      !data.Error && setResults([...data.Search])
+      // !data.Error && setResults([...data.Search])
+      !data.Error && setState(prev => ({ ...prev, results: data.Search }))
     })
-  }, [term]);
+  }, [state.term]);
+
+  const nominate = (movie) => {
+    console.log(`clicked ${movie.Title}`)
+    const nominations = [...state.nominations];
+    // add movie into the nominations array
+    // find empty index
+    const emptySpot = nominations.indexOf("");
+    nominations[emptySpot] = movie;
+    setState(prev => ({ ...prev, nominations }));
+  }
+
+  const remove = (movie) => {
+    console.log(`removing movie ${movie.Title}`)
+    const nominations = [...state.nominations];
+    // find movie index and remove
+    const movieSpot = nominations.findIndex(item => item.Title === movie.Title);
+    nominations[movieSpot] = "";
+    setState(prev => ({ ...prev, nominations }));
+  }
 
   return (
     <div className="App">
@@ -28,13 +50,14 @@ function App() {
         </header>
         <main className="content_main">
           <section className="content_search">
-            <SearchBar onSearch={term => setTerm(term)}/>
+            {/* <SearchBar onSearch={term => setTerm(term)}/> */}
+            <SearchBar onSearch={term => setState({...state, term})}/>
             <p>Select your favourite movies to nominate for the Shoppies:</p>
-            <SearchResults results={results}/>
+            <SearchResults results={state.results} nominate={nominate}/>
           </section>
           <aside className="content_nominations">
             <h2 className="text_nominations">Nominations</h2>
-            <NominationList selected={nominations}/>
+            <NominationList nominations={state.nominations} remove={remove}/>
           </aside>
         </main>
       </>

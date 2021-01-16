@@ -1,4 +1,3 @@
-import SearchResults from './SearchResults';
 import './SearchResultsItem.scss';
 
 function SearchResultsItem(props) {
@@ -9,6 +8,7 @@ function SearchResultsItem(props) {
         <p>({props.item.Year})</p>
         <p>{props.item.Title}</p>
       </div>
+      <i className="fa fa-plus-square fa-2x" onClick={props.onClick}></i>
     </span>
   )
 }
