@@ -4,8 +4,11 @@ import './SearchResultsItem.scss';
 function SearchResultsItem(props) {
   return (
     <span className="movie_info">
-      {props.item.Title} ({props.item.Year})
-      <img className="poster" alt="poster" src={props.item.Poster} width={50} />
+      <img className="poster" alt="poster" src={props.item.Poster} />
+      <div className="results_title_year">
+        <p>({props.item.Year})</p>
+        <p>{props.item.Title}</p>
+      </div>
     </span>
   )
 }
