@@ -5,16 +5,16 @@ function NominationListItem(props) {
     <span className="movie_nominated_card">
       <div className="movie_nominated_title_year">
         <p>{props.item.Year}</p>
-        <p>{props.item.Title}</p>
-      </div>
-      {
-        props.item &&
-        <i 
+        {
+          props.item &&
+          <i 
           className="fa fa-minus-square fa-lg"
           onClick={props.onClick}
-        >
-        </i>
-      }
+          >
+          </i>
+        }
+      </div>
+      <p>{props.item.Title}</p>
     </span>
   )
 };

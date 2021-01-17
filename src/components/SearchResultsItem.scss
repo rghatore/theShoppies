@@ -9,15 +9,42 @@
   .poster {
     height: 5em;
     width: 3.75em;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    .fa-photo {
+      opacity: 40%;
+    }
+
+    p {
+      margin-block-start: 0;
+      margin-block-end: 0;
+      font-size: small;
+      padding: 0 0.8em;
+      opacity: 60%;
+      text-align: center;
+    }
+
   }
 
   .fa-plus-square {
+    font-size: xx-large;
     line-height: 29px;
     color: green;
   }
 
   .fa-check-square {
+    font-size: xx-large;
     line-height: 29px;
+    color: grey;
+  }
+
+  .fa-square-o {
+    font-size: 35px;
+    line-height: 32px;
     color: grey;
   }
 
