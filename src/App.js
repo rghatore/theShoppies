@@ -10,7 +10,8 @@ function App() {
   const [state, setState] = useState({
     term: "",
     results: [],
-    nominations: ["", "", "", "", ""]
+    nominations: ["", "", "", "", ""],
+    totalNominated: 0
   })
 
   useEffect(() => {
@@ -25,20 +26,24 @@ function App() {
   const nominate = (movie) => {
     console.log(`clicked ${movie.Title}`)
     const nominations = [...state.nominations];
+    // const total = state.totalNominated++;
+    // console.log(`total: ${total}`);
     // add movie into the nominations array
     // find empty index
     const emptySpot = nominations.indexOf("");
     nominations[emptySpot] = movie;
-    setState(prev => ({ ...prev, nominations }));
+    setState(prev => ({ ...prev, nominations, totalNominated: state.totalNominated++ }));
   }
 
   const remove = (movie) => {
     console.log(`removing movie ${movie.Title}`)
     const nominations = [...state.nominations];
+    // const total = state.totalNominated--;
+    // console.log(`total: ${total}`);
     // find movie index and remove
     const movieSpot = nominations.findIndex(item => item.imdbID === movie.imdbID);
     nominations[movieSpot] = "";
-    setState(prev => ({ ...prev, nominations }));
+    setState(prev => ({ ...prev, nominations, totalNominated: state.totalNominated-- }));
   }
 
   return (
@@ -57,6 +62,7 @@ function App() {
               results={state.results}
               nominate={nominate}
               nominations={state.nominations}
+              total={state.totalNominated}
             />
           </section>
           <aside className="content_nominations">

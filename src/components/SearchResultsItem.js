@@ -7,6 +7,14 @@ function SearchResultsItem(props) {
     return props.nominations.find(item => item.imdbID === movie.imdbID)
   }
 
+  const total = () => {
+    if (props.total === 5) {
+      return <i className="fa fa-square-o fa-2x" ></i>
+    } else {
+      return <i className="fa fa-plus-square fa-2x" onClick={props.onClick}></i>
+    }
+  }
+
   return (
     <span className="movie_info">
       <img className="poster" alt="poster" src={props.item.Poster} />
@@ -16,7 +24,8 @@ function SearchResultsItem(props) {
       </div>
       {
         !button(props.item) ?
-        <i className="fa fa-plus-square fa-2x" onClick={props.onClick}></i> :
+        // <i className="fa fa-plus-square fa-2x" onClick={props.onClick}></i> :
+        total() :
         <i className="fa fa-check-square fa-2x" ></i>
       }
     </span>

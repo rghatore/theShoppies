@@ -18,6 +18,7 @@ function SearchResults(props) {
           onClick={() => props.nominate(movie)}
           // onClick={() => nominate(movie)}
           nominations={props.nominations}
+          total={props.total}
           />
         )
       }
