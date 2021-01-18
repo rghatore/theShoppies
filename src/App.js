@@ -9,15 +9,17 @@ import Banner from './components/Banner';
 function App() {
 
   const [state, setState] = useState({
-    term: "",
     results: [],
     nominations: ["", "", "", "", ""],
     totalNominated: 0
   })
 
+  // in order to fix error while deploying
+  const [term, setTerm] = useState("");
+
   useEffect(() => {
-    if (state.term) {
-      axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${state.term}&type=movie`)
+    if (term) {
+      axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${term}&type=movie`)
       .then(({ data }) => {
         console.log(data); // upto ten results
         // !data.Error && setResults([...data.Search])
@@ -27,7 +29,7 @@ function App() {
       setState(prev => ({ ...prev, results: [] }))
     }
 
-  }, [state.term]);
+  }, [term]);
 
   const nominate = (movie) => {
     console.log(`clicked ${movie.Title}`)
@@ -56,7 +58,7 @@ function App() {
       </header>
       <main className="content_main">
         <section className="content_search">
-          <SearchBar onSearch={term => setState({...state, term})}/>
+          <SearchBar onSearch={term => setTerm(term)}/>
           <p>Select your favourite movies to nominate for the Shoppies:</p>
           <SearchResults
             results={state.results}
