@@ -18,6 +18,8 @@ Web app to search and nominate your favourite five movies
 - Create links to share with people
 - Loading status
 - Minor UI fixes
+- Error handling
+- Ensure that the web app is [accessible for everyone](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)
 
 ### Acknowledgement
 - Shopify front end developer intern challenge for presenting this idea
