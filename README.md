@@ -1,4 +1,6 @@
-# Welcome to the Shoppies <img src="https://github.com/rghatore/theShoppies/blob/master/public/theShoppiesLogo.png?raw=true" alt="logo" width={50}/>
+<img src="https://github.com/rghatore/theShoppies/blob/master/public/theShoppiesLogo.png?raw=true" alt="logo" width={50}/>
+
+# Welcome to the Shoppies 
 Web app to search and nominate your favourite five movies
 
 ### Deployed using Netlify (click on the following link to visit the site):
