@@ -51,8 +51,8 @@ function App() {
     <div className="App">
       {state.totalNominated === 5 && <Banner/>}
       <header>
-        <img id="logo" src="logo192.png" alt="logo" width={50}/>
-        <h1>The Shoppies</h1>
+        <img id="logo" src="theShoppiesLogo.png" alt="logo" width={50}/>
+        <h1 id="title">The Shoppies</h1>
       </header>
       <main className="content_main">
         <section className="content_search">

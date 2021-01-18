@@ -5,7 +5,8 @@ function NominationList(props) {
   return (
     <ul className="nomination_list">
       {props.nominations.map(
-        movie => <NominationListItem
+        (movie, index) => <NominationListItem
+          key={index}
           item={movie}
           onClick={() => props.remove(movie)}
           />
