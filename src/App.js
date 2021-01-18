@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     if (state.term) {
-      axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${state.term}&type=movie`)
+      axios.get(`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${state.term}&type=movie`)
       .then(({ data }) => {
         console.log(data); // upto ten results
         // !data.Error && setResults([...data.Search])
