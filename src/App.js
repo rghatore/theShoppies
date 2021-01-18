@@ -32,19 +32,21 @@ function App() {
   const nominate = (movie) => {
     console.log(`clicked ${movie.Title}`)
     const nominations = [...state.nominations];
+    const total = state.totalNominated + 1;
     // find empty index and add movie into the nominations array
     const emptySpot = nominations.indexOf("");
     nominations[emptySpot] = movie;
-    setState(prev => ({ ...prev, nominations, totalNominated: prev.totalNominated++ }));
+    setState(prev => ({ ...prev, nominations, totalNominated: total}));
   }
 
   const remove = (movie) => {
     console.log(`removing movie ${movie.Title}`)
     const nominations = [...state.nominations];
+    const total = state.totalNominated - 1;
     // find movie index and remove movie from the nominations array
     const movieSpot = nominations.findIndex(item => item.imdbID === movie.imdbID);
     nominations[movieSpot] = "";
-    setState(prev => ({ ...prev, nominations, totalNominated: prev.totalNominated-- }));
+    setState(prev => ({ ...prev, nominations, totalNominated: total}));
   }
 
   return (
