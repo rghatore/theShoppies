@@ -10,9 +10,11 @@ function Banner () {
   return (
     open &&
     <div className="modal_popup">
-      <span className="modal_content">
-        <p>You have reached your limit for nominations. Thank you for participating!</p>
-      </span>
+      <div className="modal_position">
+        <span className="modal_content">
+          <p>You have reached your limit for nominations. Thank you for participating!</p>
+        </span>
+      </div>
     </div>
   )
 };

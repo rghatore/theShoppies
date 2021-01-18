@@ -16,12 +16,17 @@ function App() {
   })
 
   useEffect(() => {
-    axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${state.term}&type=movie`)
-    .then(({ data }) => {
-      console.log(data); // upto ten results
-      // !data.Error && setResults([...data.Search])
-      !data.Error && setState(prev => ({ ...prev, results: data.Search }))
-    })
+    if (state.term) {
+      axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${state.term}&type=movie`)
+      .then(({ data }) => {
+        console.log(data); // upto ten results
+        // !data.Error && setResults([...data.Search])
+        !data.Error && setState(prev => ({ ...prev, results: data.Search }))
+      })
+    } else {
+      setState(prev => ({ ...prev, results: [] }))
+    }
+
   }, [state.term]);
 
   const nominate = (movie) => {
@@ -44,12 +49,12 @@ function App() {
 
   return (
     <div className="App">
+      {state.totalNominated === 5 && <Banner/>}
       <header>
         <img id="logo" src="logo192.png" alt="logo" width={50}/>
         <h1>The Shoppies</h1>
       </header>
       <main className="content_main">
-        {state.totalNominated === 5 && <Banner/>}
         <section className="content_search">
           <SearchBar onSearch={term => setState({...state, term})}/>
           <p>Select your favourite movies to nominate for the Shoppies:</p>
